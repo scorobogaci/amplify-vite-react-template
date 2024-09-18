@@ -4,6 +4,7 @@ import '@aws-amplify/ui-react/styles.css'
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import {StorageBrowser} from "./components/storage-browser.ts";
 
 const client = generateClient<Schema>();
 
@@ -46,6 +47,7 @@ function App() {
                   Review next step of this tutorial.
                 </a>
               </div>
+              <StorageBrowser></StorageBrowser>
               <button onClick={signOut}>Sign out</button>
             </main>
 
