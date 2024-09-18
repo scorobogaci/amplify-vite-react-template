@@ -28,9 +28,9 @@
     "url": "https://4tgpkf2torg5fhwirsqlza6ta4.appsync-api.eu-central-1.amazonaws.com/graphql",
     "aws_region": "eu-central-1",
     "api_key": "da2-lcabxgjd75cz7caomvk2byd6tq",
-    "default_authorization_type": "API_KEY",
+    "default_authorization_type": "AMAZON_COGNITO_USER_POOLS",
     "authorization_types": [
-      "AMAZON_COGNITO_USER_POOLS",
+      "API_KEY",
       "AWS_IAM"
     ],
     "model_introspection": {
@@ -82,8 +82,10 @@
               "properties": {
                 "rules": [
                   {
-                    "allow": "public",
-                    "provider": "apiKey",
+                    "provider": "userPools",
+                    "ownerField": "owner",
+                    "allow": "owner",
+                    "identityClaim": "cognito:username",
                     "operations": [
                       "create",
                       "update",
@@ -105,6 +107,17 @@
       "enums": {},
       "nonModels": {}
     }
+  },
+  "storage": {
+    "aws_region": "eu-central-1",
+    "bucket_name": "amplify-d148m4n6q4lp10-ma-myprojectfilesbucket89ac-k8ucaa40mrgy",
+    "buckets": [
+      {
+        "name": "myProjectFiles",
+        "bucket_name": "amplify-d148m4n6q4lp10-ma-myprojectfilesbucket89ac-k8ucaa40mrgy",
+        "aws_region": "eu-central-1"
+      }
+    ]
   },
   "version": "1.1"
 }
