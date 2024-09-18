@@ -4,16 +4,17 @@ import '@aws-amplify/ui-react/styles.css'
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import {StorageBrowser} from "@aws-amplify/ui-react-storage";
 
 const client = generateClient<Schema>();
 
 function App() {
 
-  // const defaultPrefixes = [
-  //   'public/',
-  //   (identityId: string) => `protected/${identityId}/`,
-  //   (identityId: string) => `private/${identityId}/`,
-  // ];
+  const defaultPrefixes = [
+    'public/',
+    (identityId: string) => `protected/${identityId}/`,
+    (identityId: string) => `private/${identityId}/`,
+  ];
 
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
@@ -48,6 +49,7 @@ function App() {
                   ))}
                 </ul>
               </main>
+              <StorageBrowser defaultPrefixes={defaultPrefixes}></StorageBrowser>
               <button onClick={signOut}>Sign out</button>
             </>
 
