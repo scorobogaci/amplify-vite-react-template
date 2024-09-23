@@ -8,7 +8,7 @@ function App() {
   const defaultPrefixes = [
     // 'public/',
     // (identityId: string) => `protected/${identityId}/`,
-    (identityId: string) => `${identityId}/`,
+    (identityId: string) => `files/${identityId}/`,
   ];
 
   return (
