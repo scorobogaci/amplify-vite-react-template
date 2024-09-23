@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/storage": "^6.6.6-storage-browser.4949269.0",
     "@aws-amplify/ui-react": "^6.2.0",
-    "@aws-amplify/ui-react-storage": "^0.0.0-storage-browser-670d987-20240905191734",
-    "aws-amplify": "^6.6.1-storage-browser.4949269.0",
+    "@aws-amplify/ui-react-storage": "storage-browser",
+    "aws-amplify": "storage-browser",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
