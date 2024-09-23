@@ -6,9 +6,9 @@ import {StorageBrowser} from "@aws-amplify/ui-react-storage";
 function App() {
 
   const defaultPrefixes = [
-    'public/',
-    (identityId: string) => `protected/${identityId}/`,
-    (identityId: string) => `private/${identityId}/`,
+    // 'public/',
+    // (identityId: string) => `protected/${identityId}/`,
+    (identityId: string) => `${identityId}/`,
   ];
 
   return (
