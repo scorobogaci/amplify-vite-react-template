@@ -8,5 +8,13 @@ export const auth = defineAuth({
     triggers: {
         postConfirmation: postConfirmationSignUpTrigger,
         postAuthentication: postAuthenticationTrigger
-    }
+    },
+    userAttributes: {
+        "custom:identityID": {
+            dataType: "String",
+            mutable: true,
+            maxLen: 16,
+            minLen: 1,
+        },
+    },
 });
