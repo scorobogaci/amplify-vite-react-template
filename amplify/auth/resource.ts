@@ -1,11 +1,12 @@
 import {defineAuth} from '@aws-amplify/backend';
-import {postConfirmationSignUpTrigger} from "../functions/resource";
+import {postAuthenticationTrigger, postConfirmationSignUpTrigger} from "../functions/resource";
 
 export const auth = defineAuth({
     loginWith: {
         email: true,
     },
     triggers: {
-        postConfirmation: postConfirmationSignUpTrigger
+        postConfirmation: postConfirmationSignUpTrigger,
+        postAuthentication: postAuthenticationTrigger
     }
 });
