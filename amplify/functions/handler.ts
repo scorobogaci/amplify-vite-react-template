@@ -1,4 +1,6 @@
-export const handler = async (event) => {
-    console.log("event : ", event);
+import {PostConfirmationConfirmSignUpTriggerEvent} from "aws-lambda";
+
+export const handler = async (event: PostConfirmationConfirmSignUpTriggerEvent) => {
+    console.log("event received : ", event);
     return "Hello from my first function!";
 };
