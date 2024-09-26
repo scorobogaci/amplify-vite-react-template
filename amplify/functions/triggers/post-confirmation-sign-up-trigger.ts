@@ -1,6 +1,6 @@
 import {PostConfirmationConfirmSignUpTriggerEvent} from "aws-lambda";
 
 export const handler = async (event: PostConfirmationConfirmSignUpTriggerEvent) => {
-    console.log("event received : ", event);
-    return "Hello from my first function!";
+    console.log("post confirmation event received : ", event);
+    return event;
 };
