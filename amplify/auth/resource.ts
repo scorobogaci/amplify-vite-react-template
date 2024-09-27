@@ -13,6 +13,12 @@ export const auth = defineAuth({
         "custom:identityID": {
             dataType: "String",
             mutable: true,
+            maxLen: 16,
+            minLen: 1,
+        },
+        "custom:identity": {
+            dataType: "String",
+            mutable: true,
             maxLen: 50,
             minLen: 1,
         },

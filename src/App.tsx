@@ -20,7 +20,7 @@ function App() {
 
         await updateUserAttributes({
             userAttributes: {
-                'custom:identityID': session.identityId
+                'custom:identity': session.identityId
             },
         });
     }
