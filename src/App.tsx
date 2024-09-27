@@ -17,12 +17,14 @@ function App() {
         console.log("current user : ", user);
         const userAttributes = await fetchUserAttributes();
         console.log("userAttributes : ", userAttributes);
-
-        await updateUserAttributes({
-            userAttributes: {
-                'custom:identity': session.identityId
-            },
-        });
+        if (!userAttributes['custom:identity']) {
+            console.log("Mapping user identity...")
+            await updateUserAttributes({
+                userAttributes: {
+                    'custom:identity': session.identityId
+                },
+            });
+        }
     }
 
     return (
