@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/auth": "storage-browser",
     "@aws-amplify/storage": "^6.6.6-storage-browser.4949269.0",
     "@aws-amplify/ui-react": "^6.2.0",
     "@aws-amplify/ui-react-storage": "storage-browser",
+    "@aws-sdk/client-cognito-identity-provider": "^3.658.1",
     "@types/aws-lambda": "^8.10.145",
     "aws-amplify": "storage-browser",
-    "@aws-amplify/auth": "storage-browser",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

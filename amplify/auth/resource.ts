@@ -22,5 +22,11 @@ export const auth = defineAuth({
             maxLen: 50,
             minLen: 1,
         },
+        "custom:firstLogin": {
+            dataType: "String",
+            mutable: true,
+            maxLen: 5,
+            minLen: 1,
+        },
     },
 });

@@ -2,7 +2,7 @@ import { defineFunction } from "@aws-amplify/backend";
 
 export const postConfirmationSignUpTrigger = defineFunction({
     name: "post-confirmation-trigger",
-    entry: "./triggers/post-confirmation-sign-up-trigger.ts"
+    entry: "./triggers/post-confirmation-sign-up-trigger.ts",
 });
 
 export const postAuthenticationTrigger = defineFunction({
