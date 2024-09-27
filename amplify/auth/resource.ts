@@ -10,12 +10,12 @@ export const auth = defineAuth({
         postAuthentication: postAuthenticationTrigger
     },
     userAttributes: {
-        // "custom:identityID": {
-        //     dataType: "String",
-        //     mutable: true,
-        //     maxLen: 16,
-        //     minLen: 1,
-        // },
+        "custom:identityID": {
+            dataType: "String",
+            mutable: true,
+            maxLen: 16,
+            minLen: 1,
+        },
         "custom:identity": {
             dataType: "String",
             mutable: true,
