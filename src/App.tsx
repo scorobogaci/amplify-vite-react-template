@@ -17,11 +17,13 @@ function App() {
         console.log("current user : ", user);
         const userAttributes = await fetchUserAttributes();
         console.log("userAttributes : ", userAttributes);
-        if (!userAttributes['custom:identity']) {
+        const isFirstTimeLogin = !userAttributes['custom:identity'] && userAttributes['custom:firstLogin'] === 'true';
+        if (isFirstTimeLogin) {
             console.log("Mapping user identity...")
             await updateUserAttributes({
                 userAttributes: {
-                    'custom:identity': session.identityId
+                    'custom:identity': session.identityId,
+                    'custom:firstLogin':'false'
                 },
             });
         }
@@ -34,7 +36,7 @@ function App() {
                     <h1>Hi {user?.signInDetails?.loginId}</h1>
                     <StorageBrowser defaultPrefixes={defaultPrefixes}></StorageBrowser>
                     <button onClick={signOut}>Sign out</button>
-                    <button onClick={getAuthDetails}>Log details</button>
+                    <button onClick={getAuthDetails}>Log auth details</button>
                 </>
             )}
         </Authenticator>
