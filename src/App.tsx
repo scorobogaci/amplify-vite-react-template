@@ -3,12 +3,20 @@ import '@aws-amplify/ui-react/styles.css'
 import '@aws-amplify/ui-react-storage/storage-browser-styles.css';
 import {StorageBrowser} from "@aws-amplify/ui-react-storage";
 import {fetchAuthSession, fetchUserAttributes, getCurrentUser, updateUserAttributes} from 'aws-amplify/auth';
+import type {Schema} from "../amplify/data/resource.ts";
+import { generateClient } from "aws-amplify/data";
+
+const client = generateClient<Schema>();
 
 function App() {
 
     const defaultPrefixes = [
         (identityId: string) => `files/${identityId}/`,
     ];
+
+    const createAccount = (identity:string,email:string)=>{
+        client.models.Account.create({identity,email})
+    }
 
     const getAuthDetails = async () => {
         const session = await fetchAuthSession();
@@ -19,13 +27,14 @@ function App() {
         console.log("userAttributes : ", userAttributes);
         const isFirstTimeLogin = !userAttributes['custom:identity'] && userAttributes['custom:firstLogin'] === 'true';
         if (isFirstTimeLogin) {
-            console.log("Mapping user identity...")
+            console.log("Creating account on first sign in...")
             await updateUserAttributes({
                 userAttributes: {
                     'custom:identity': session.identityId,
                     'custom:firstLogin':'false'
                 },
             });
+            createAccount(session.identityId!,userAttributes.email!);
         }
     }
 
