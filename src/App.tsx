@@ -26,7 +26,7 @@ function App() {
         const userAttributes = await fetchUserAttributes();
         console.log("userAttributes : ", userAttributes);
         const isFirstTimeLogin = !userAttributes['custom:identity'] && userAttributes['custom:firstLogin'] === 'true';
-        if (isFirstTimeLogin) {
+        if (1===1 || isFirstTimeLogin) {
             console.log("Creating account on first sign in...")
             await updateUserAttributes({
                 userAttributes: {
