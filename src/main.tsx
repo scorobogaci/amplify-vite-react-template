@@ -10,6 +10,7 @@ console.log('Amplify.configure after');
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+      {/*can be wrapped here using Authenticator : https://aws.amazon.com/blogs/mobile/amplify-gen2-ga/*/}
     <App />
   </React.StrictMode>
 );
