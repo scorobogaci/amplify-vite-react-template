@@ -5,6 +5,7 @@ import {StorageBrowser} from "@aws-amplify/ui-react-storage";
 import {fetchAuthSession, fetchUserAttributes, getCurrentUser, updateUserAttributes} from 'aws-amplify/auth';
 import type {Schema} from "../amplify/data/resource.ts";
 import { generateClient } from "aws-amplify/data";
+import {Amplify} from "aws-amplify";
 
 const client = generateClient<Schema>();
 
@@ -27,6 +28,7 @@ function App() {
         console.log("userAttributes : ", userAttributes);
         const isFirstTimeLogin = !userAttributes['custom:identity'] && userAttributes['custom:firstLogin'] === 'true';
         if (1===1 || isFirstTimeLogin) {
+            console.log("Amplify.getConfig().API.GraphQL : ",Amplify.getConfig()?.API?.GraphQL);
             console.log("Creating account on first sign in...")
             await updateUserAttributes({
                 userAttributes: {
