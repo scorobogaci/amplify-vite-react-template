@@ -1,11 +1,8 @@
-import {Authenticator} from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import '@aws-amplify/ui-react-storage/storage-browser-styles.css';
 import {StorageBrowser} from "@aws-amplify/ui-react-storage";
-import {fetchAuthSession, fetchUserAttributes, getCurrentUser, updateUserAttributes} from 'aws-amplify/auth';
 import type {Schema} from "../amplify/data/resource.ts";
 import { generateClient } from "aws-amplify/data";
-import {Amplify} from "aws-amplify";
 
 const client = generateClient<Schema>();
 
@@ -20,28 +17,28 @@ function App() {
     }
 
     const getAuthDetails = async () => {
-        const session = await fetchAuthSession();
-        console.log("Cognito IdentityId : ", session.identityId);
-        const user = await getCurrentUser();
-        console.log("current user : ", user);
-        const userAttributes = await fetchUserAttributes();
-        console.log("userAttributes : ", userAttributes);
-        const isFirstTimeLogin = !userAttributes['custom:identity'] && userAttributes['custom:firstLogin'] === 'true';
-        if (1===1 || isFirstTimeLogin) {
-            console.log("Amplify.getConfig().API.GraphQL : ",Amplify.getConfig()?.API?.GraphQL);
-            console.log("Creating account on first sign in...")
-            await updateUserAttributes({
-                userAttributes: {
-                    'custom:identity': session.identityId,
-                    'custom:firstLogin':'false'
-                },
-            });
-            createAccount(session.identityId!,userAttributes.email!);
-        }
+        // const session = await fetchAuthSession();
+        // console.log("Cognito IdentityId : ", session.identityId);
+        // const user = await getCurrentUser();
+        // console.log("current user : ", user);
+        // const userAttributes = await fetchUserAttributes();
+        // console.log("userAttributes : ", userAttributes);
+        // const isFirstTimeLogin = !userAttributes['custom:identity'] && userAttributes['custom:firstLogin'] === 'true';
+        // if (1===1 || isFirstTimeLogin) {
+        //     console.log("Amplify.getConfig().API.GraphQL : ",Amplify.getConfig()?.API?.GraphQL);
+        //     console.log("Creating account on first sign in...")
+        //     await updateUserAttributes({
+        //         userAttributes: {
+        //             'custom:identity': session.identityId,
+        //             'custom:firstLogin':'false'
+        //         },
+        //     });
+        // }
+        createAccount('hgdwehdqwdqd','scorobogaciion@gmail.com');
     }
 
     return (
-        <Authenticator>
+/*        <Authenticator>
             {({signOut, user}) => (
                 <>
                     <h1>Hi {user?.signInDetails?.loginId}</h1>
@@ -50,7 +47,11 @@ function App() {
                     <button onClick={getAuthDetails}>Log auth details</button>
                 </>
             )}
-        </Authenticator>
+        </Authenticator>*/
+        <>
+            <StorageBrowser defaultPrefixes={defaultPrefixes}></StorageBrowser>
+            <button onClick={getAuthDetails}>Log auth details</button>
+        </>
     );
 }
 

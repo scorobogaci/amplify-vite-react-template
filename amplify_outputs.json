@@ -1,9 +1,9 @@
 {
   "auth": {
-    "user_pool_id": "eu-central-1_Q61O4ZtYT",
+    "user_pool_id": "eu-central-1_FOzbce7Jc",
     "aws_region": "eu-central-1",
-    "user_pool_client_id": "2f3rso3v4qsa6b6d5hcld9clrd",
-    "identity_pool_id": "eu-central-1:201c503e-de53-446f-8eaa-fcf6ad36299b",
+    "user_pool_client_id": "6juv0remk5og39ki4cln5n5hkj",
+    "identity_pool_id": "eu-central-1:8aeb42fa-2aeb-4c99-a539-38f4dd99a2fa",
     "mfa_methods": [],
     "standard_required_attributes": [
       "email"
@@ -25,9 +25,9 @@
     "unauthenticated_identities_enabled": true
   },
   "data": {
-    "url": "https://4tgpkf2torg5fhwirsqlza6ta4.appsync-api.eu-central-1.amazonaws.com/graphql",
+    "url": "https://a2d4qbiuwfgprckbmynls56jxu.appsync-api.eu-central-1.amazonaws.com/graphql",
     "aws_region": "eu-central-1",
-    "api_key": "da2-lcabxgjd75cz7caomvk2byd6tq",
+    "api_key": "da2-3vkvgwwizbgapan3wgobpz3i2q",
     "default_authorization_type": "AMAZON_COGNITO_USER_POOLS",
     "authorization_types": [
       "API_KEY",
@@ -118,11 +118,11 @@
   },
   "storage": {
     "aws_region": "eu-central-1",
-    "bucket_name": "amplify-d148m4n6q4lp10-ma-myprojectfilesbucket89ac-k8ucaa40mrgy",
+    "bucket_name": "amplify-d3hvwundmjt6z5-ma-myprojectfilesbucket89ac-cga0pcyyp2wy",
     "buckets": [
       {
         "name": "myProjectFiles",
-        "bucket_name": "amplify-d148m4n6q4lp10-ma-myprojectfilesbucket89ac-k8ucaa40mrgy",
+        "bucket_name": "amplify-d3hvwundmjt6z5-ma-myprojectfilesbucket89ac-cga0pcyyp2wy",
         "aws_region": "eu-central-1"
       }
     ]

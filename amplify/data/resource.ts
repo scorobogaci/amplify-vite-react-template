@@ -4,7 +4,7 @@ const schema = a.schema({
     Account: a.model({
         identity: a.id().required(),
         email: a.email()
-    }).identifier(['identity']).authorization(allow => [allow.owner()])
+    }).identifier(['identity']).authorization(allow => [allow.publicApiKey()])
 })
 
 export type Schema = ClientSchema<typeof schema>;
@@ -12,7 +12,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
     schema,
     authorizationModes: {
-        defaultAuthorizationMode: 'userPool',
+        defaultAuthorizationMode: 'apiKey',
         apiKeyAuthorizationMode: {
             expiresInDays: 30,
         },
